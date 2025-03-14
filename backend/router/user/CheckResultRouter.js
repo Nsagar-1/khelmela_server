@@ -1,0 +1,13 @@
+const express = require('express')
+const {checkResult,checkuserJoinFF, checkmatchtypeTdm, checkmatchtypePubg, checkmatchtypeff, checkrole, getchampions, checkResulttdm} = require('../../controller/checkResultController')
+const Authverify = require('../../middleware/AuthVerify')
+const router2 = express.Router()
+router2.post('/checkresult',Authverify,checkResult)
+router2.post('/checkresulttdm',Authverify,checkResulttdm)
+router2.post('/checkuserff',Authverify,checkuserJoinFF)
+router2.post('/checkmatchType',checkmatchtypeTdm)
+router2.post('/checkmatchTypePubg',checkmatchtypePubg)
+router2.post('/checkmatchTypeff',checkmatchtypeff)
+router2.get('/checkrole',Authverify,checkrole)
+router2.get('/getchampions',Authverify,getchampions)
+module.exports = router2
